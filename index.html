@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Game with computer</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="icon" href="apple-touch-icon.png">
+   </head>
+   <body>
+      <div id="head">
+         <p id="par"></p>
+      </div>
+
+      <div id="container">
+         <h3>Введи число от 1 до 20.</h3>
+         <h4>Кто победит: ты или компьютер?</h4>
+         <p>У тебя есть 5 попыток</p>
+         <input type="text" id="input_field" placeholder="Введи число">
+         <button id='btn'>ИГРАТЬ</button>
+      </div>
+
+
+         <p id="user_attempts">Число оставшихся попыток: <span id="attempts"></span></p>
+         <p id="number_attempts">Твои предыдущие предположения: <span id="numberAttempts"></span></p>
+
+         <p id="game_over">Вы проиграли. Правильный ответ - <span id="tryAnswer"></span> . Попробуйте заново!</p>
+         <button id='btnNewGame'>НОВАЯ ИГРА</button>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/timelinejs/3.6.6/js/timeline-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="index.js"></script>
+   </body>
+</html>
