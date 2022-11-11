@@ -22,10 +22,6 @@ tl.from('#btnNewGame', 1.5, {
 })
 
 
-
-
-
-
 const text = 'Игра с компьютером';
 let i = 0;
 const speed = 110;
@@ -43,7 +39,7 @@ type();
 const button = document.querySelector('#btn');
 const inputField = document.querySelector('#input_field');
 const randomNumber = Math.floor(Math.random()*20)+1;
-let userAttempts = 5;
+
 
 inputField.addEventListener('keypress', function(e) {
     if (e.keyCode === 13)
@@ -51,18 +47,15 @@ inputField.addEventListener('keypress', function(e) {
 })
 
 button.addEventListener('click', play);
+let userAttempts = 5;
+const numberAttempts = document.querySelector('#numberAttempts');
+const attempts = document.querySelector('#attempts');
 
 function play() {
-
     const userNumber = document.querySelector('#input_field').value;
-
     userAttempts--;
-    const attempts = document.querySelector('#attempts');
     attempts.textContent = userAttempts;
-
-    const numberAttempts = document.querySelector('#numberAttempts');
     numberAttempts.textContent += userNumber + ', ';
-
     if (userAttempts === 0 ) {
         if (Number(userNumber) === randomNumber) {
             victory();
@@ -132,10 +125,11 @@ function victory() {
       btnNewGame.addEventListener('click', newGame)
 }
 
+const gameOver = document.querySelector('#game_over');
+const btnNewGame = document.querySelector('#btnNewGame');
+const tryAnswer = document.querySelector('#tryAnswer');
+
 function losing() {
-    const gameOver = document.querySelector('#game_over');
-    const tryAnswer = document.querySelector('#tryAnswer');
-    const btnNewGame = document.querySelector('#btnNewGame');
     gameOver.style.display = 'block';
     btnNewGame.style.display = 'block';
     tryAnswer.textContent = randomNumber;
@@ -146,6 +140,11 @@ function losing() {
 }
 
 function newGame() {
-    location.reload();
+    inputField.removeAttribute('disabled');
+    button.removeAttribute('disabled');
+    numberAttempts.textContent = '';
+    attempts.textContent = '';
+    userAttempts = 5;
+    gameOver.style.display = 'none';
 }
 
